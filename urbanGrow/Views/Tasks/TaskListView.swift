@@ -4,6 +4,7 @@ struct TaskListView: View {
     let tasks: [ScheduledTask]
     var onCompleteTask: (ScheduledTask) -> Void
     var onDelayTask: (ScheduledTask) -> Void
+    var onSkipTask: ((ScheduledTask, String) -> Void)? = nil
 
     var sortedTasks: [ScheduledTask] {
         tasks.sorted { $0.plannedDayOffset < $1.plannedDayOffset }
@@ -22,7 +23,8 @@ struct TaskListView: View {
                     TaskRow(
                         task: task,
                         onComplete: { onCompleteTask(task) },
-                        onDelayOneDay: { onDelayTask(task) }
+                        onDelayOneDay: { onDelayTask(task) },
+                        onSkip: { reason in onSkipTask?(task, reason) }
                     )
                 }
             }

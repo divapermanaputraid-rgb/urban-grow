@@ -4,6 +4,10 @@ struct TaskRow: View {
     let task: ScheduledTask
     var onComplete: (() -> Void)? = nil
     var onDelayOneDay: (() -> Void)? = nil
+    var onSkip: ((String) -> Void)? = nil
+
+    @State private var isShowingSkipAlert: Bool = false
+    @State private var skipReason: String = ""
 
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
@@ -66,6 +70,25 @@ struct TaskRow: View {
         .background(Color(.systemBackground))
         .cornerRadius(12)
         .shadow(color: .black.opacity(0.04), radius: 3)
+        .contextMenu {
+            if task.taskStatus == .pending || task.taskStatus == .delayed {
+                Button(role: .destructive) {
+                    isShowingSkipAlert = true
+                } label: {
+                    Label("Lewati Task", systemImage: "forward.end")
+                }
+            }
+        }
+        .alert("Lewati Task", isPresented: $isShowingSkipAlert) {
+            TextField("Alasan (opsional)", text: $skipReason)
+            Button("Batal", role: .cancel) { skipReason = "" }
+            Button("Lewati", role: .destructive) {
+                onSkip?(skipReason)
+                skipReason = ""
+            }
+        } message: {
+            Text("Apakah kamu yakin ingin melewati task ini?")
+        }
         .swipeActions(edge: .leading) {
             if task.taskStatus == .pending || task.taskStatus == .delayed {
                 Button {

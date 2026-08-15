@@ -96,6 +96,9 @@ struct BatchDetailView: View {
                             },
                             onDelayTask: { task in
                                 delayTaskOneDay(task)
+                            },
+                            onSkipTask: { task, reason in
+                                skipTask(task, reason: reason)
                             }
                         )
                     case .photos:
@@ -120,5 +123,14 @@ struct BatchDetailView: View {
     private func delayTaskOneDay(_ task: ScheduledTask) {
         let newDate = Calendar.current.date(byAdding: .day, value: 1, to: task.plannedDate) ?? task.plannedDate
         CascadeRescheduleService.shared.rescheduleTask(task, to: newDate, in: modelContext)
+    }
+
+    private func skipTask(_ task: ScheduledTask, reason: String) {
+        task.taskStatus = .skipped
+        if !reason.isEmpty {
+            task.note = reason
+        }
+        NotificationService.shared.cancelNotification(for: task.id)
+        try? modelContext.save()
     }
 }

@@ -381,18 +381,18 @@
 - [x] Build & run.
 
 ### Step 5h — Buat DelayTaskSheet
-- [ ] Buat file baru: `Views/Tasks/DelayTaskSheet.swift`.
-- [ ] Stepper: "Tunda berapa hari?" (default 1, range 1–14).
-- [ ] Text info: "Semua task berikutnya akan ikut bergeser."
-- [ ] Button "Konfirmasi" → panggil `CascadeRescheduleService`.
-- [ ] Dismiss sheet.
-- [ ] Build & run.
+- [x] Buat file baru: `Views/Tasks/DelayTaskSheet.swift`.
+- [x] Stepper: "Tunda berapa hari?" (default 1, range 1–14).
+- [x] Text info: "Semua task berikutnya akan ikut bergeser."
+- [x] Button "Konfirmasi" → panggil `CascadeRescheduleService`.
+- [x] Dismiss sheet.
+- [x] Build & run.
 
 ### Step 5i — Implementasi Skip Task
-- [ ] Di TaskRow, tambah menu/context menu: "⏭ Lewati Task".
-- [ ] Alert konfirmasi dengan TextField alasan.
-- [ ] Set status `.skipped`, save note.
-- [ ] Build & run.
+- [x] Di TaskRow, tambah menu/context menu: "⏭ Lewati Task".
+- [x] Alert konfirmasi dengan TextField alasan.
+- [x] Set status `.skipped`, save note.
+- [x] Build & run.
 
 ---
 
