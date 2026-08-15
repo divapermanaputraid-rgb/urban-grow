@@ -8,10 +8,7 @@ class TaskPhoto {
     var caption: String?
     var takenDate: Date
 
-    @Relationship(inverse: \ScheduledTask.photos)
     var task: ScheduledTask?
-
-    @Relationship(inverse: \HarvestLog.photo)
     var harvestLog: HarvestLog?
 
     init(

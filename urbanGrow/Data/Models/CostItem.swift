@@ -11,7 +11,6 @@ class CostItem {
     var lifespanCycles: Int?
     var isShared: Bool
 
-    @Relationship(inverse: \Batch.costs)
     var batch: Batch?
 
     init(

@@ -11,6 +11,8 @@ struct CompleteTaskSheet: View {
     @State private var completedDate: Date = Date()
     @State private var note: String = ""
     @State private var capturedImages: [UIImage] = []
+    @State private var selectedPhotoItem: PhotosPickerItem? = nil
+    @State private var isShowingCamera: Bool = false
 
     @State private var errorMessage: String? = nil
     @State private var isShowingErrorAlert: Bool = false
@@ -92,7 +94,7 @@ struct CompleteTaskSheet: View {
                     capturedImages.append(image)
                 }
             }
-            .onChange(of: selectedPhotoItem) { _, newItem in
+            .onChange(of: selectedPhotoItem) { newItem in
                 guard let newItem else { return }
                 Task {
                     if let data = try? await newItem.loadTransferable(type: Data.self),

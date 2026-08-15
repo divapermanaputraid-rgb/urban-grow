@@ -19,18 +19,10 @@ final class CascadeRescheduleService {
         task.delayDays = delayDays
         task.isCascading = true
 
-        guard let batchId = task.batch?.id else {
-            try context.save()
-            return
-        }
-
-        let predicate = #Predicate<ScheduledTask> { taskInBatch in
-            taskInBatch.batch?.id == batchId &&
-            taskInBatch.plannedDate > originalPlanned &&
-            taskInBatch.id != task.id
-        }
-        let descriptor = FetchDescriptor(predicate: predicate, sortBy: [SortDescriptor(\.plannedDate)])
-        let subsequentTasks = try context.fetch(descriptor)
+        let batchTasks = task.batch?.tasks ?? []
+        let subsequentTasks = batchTasks
+            .filter { $0.plannedDate > originalPlanned && $0.id != task.id }
+            .sorted { $0.plannedDate < $1.plannedDate }
 
         var affectedTasks: [ScheduledTask] = [task]
 

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		FAB823843030E23D0021C187 /* gitswitch.sh in Resources */ = {isa = PBXBuildFile; fileRef = FAB823833030E22F0021C187 /* gitswitch.sh */; };
 		FAB823863030E2680021C187 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FAB823853030E25D0021C187 /* .gitignore */; };
-		FAB823883030E2B00021C187 /* CLAUDE.md in Sources */ = {isa = PBXBuildFile; fileRef = FAB823873030E2A90021C187 /* CLAUDE.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +34,6 @@
 		FAB8235D3030E1470021C187 /* urbanGrowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = urbanGrowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB823833030E22F0021C187 /* gitswitch.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = gitswitch.sh; sourceTree = "<group>"; };
 		FAB823853030E25D0021C187 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		FAB823873030E2A90021C187 /* CLAUDE.md */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLAUDE.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -91,7 +89,6 @@
 			children = (
 				FAB823833030E22F0021C187 /* gitswitch.sh */,
 				FAB823853030E25D0021C187 /* .gitignore */,
-				FAB823873030E2A90021C187 /* CLAUDE.md */,
 				FAB823713030E1710021C187 /* ai */,
 				FAB823463030E1440021C187 /* urbanGrow */,
 				FAB823563030E1470021C187 /* urbanGrowTests */,
@@ -257,7 +254,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAB823883030E2B00021C187 /* CLAUDE.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +415,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Aplikasi membutuhkan akses kamera untuk mendokumentasikan pertumbuhan tanaman.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Aplikasi menggunakan lokasi untuk menampilkan informasi cuaca saat ini.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Aplikasi membutuhkan akses galeri untuk memilih foto dokumentasi.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -450,6 +449,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Aplikasi membutuhkan akses kamera untuk mendokumentasikan pertumbuhan tanaman.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Aplikasi menggunakan lokasi untuk menampilkan informasi cuaca saat ini.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Aplikasi membutuhkan akses galeri untuk memilih foto dokumentasi.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -11,10 +11,7 @@ class Milestone {
     var reminderTime: Date?
     var order: Int
 
-    @Relationship(inverse: \Plant.milestones)
     var plant: Plant?
-
-    @Relationship(inverse: \ScheduledTask.milestone)
     var scheduledTasks: [ScheduledTask]?
 
     init(

@@ -11,10 +11,9 @@ class HarvestLog {
     var marketPrice: Double?
     var note: String
 
-    @Relationship(inverse: \Batch.harvestLogs)
     var batch: Batch?
 
-    @Relationship(deleteRule: .nullify, inverse: \TaskPhoto.harvestLog)
+    @Relationship(deleteRule: .nullify)
     var photo: TaskPhoto?
 
     init(

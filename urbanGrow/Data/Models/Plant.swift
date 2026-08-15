@@ -8,10 +8,9 @@ class Plant {
     var icon: String
     var colorHex: String
 
-    @Relationship(deleteRule: .cascade, inverse: \Milestone.plant)
+    @Relationship(deleteRule: .cascade)
     var milestones: [Milestone]?
 
-    @Relationship(deleteRule: .nullify, inverse: \Batch.plant)
     var batches: [Batch]?
 
     init(id: UUID = UUID(), name: String, icon: String, colorHex: String) {

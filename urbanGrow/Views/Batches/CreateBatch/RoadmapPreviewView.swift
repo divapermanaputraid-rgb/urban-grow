@@ -14,7 +14,7 @@ struct RoadmapPreviewView: View {
         VStack {
             List {
                 Section("Preview Jadwal / Task Roadmap") {
-                    ForEach(sortedMilestones) { milestone in
+                    ForEach(sortedMilestones, id: \.id) { milestone in
                         let estimatedDate = Calendar.current.date(byAdding: .day, value: milestone.dayOffset, to: startDate) ?? startDate
 
                         HStack(spacing: 12) {
@@ -23,10 +23,12 @@ struct RoadmapPreviewView: View {
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(milestone.title)
                                     .font(.subheadline.bold())
-                                Text(milestone.taskDescription)
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                                    .lineLimit(1)
+                                if !milestone.desc.isEmpty {
+                                    Text(milestone.desc)
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                        .lineLimit(1)
+                                }
                             }
 
                             Spacer()

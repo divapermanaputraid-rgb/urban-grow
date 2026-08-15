@@ -2,22 +2,21 @@ import SwiftData
 import Foundation
 
 @Model
-class Batch {
+class Batch: Hashable {
     @Attribute(.unique) var id: UUID
     var label: String
     var startDate: Date
     var status: String // BatchStatus rawValue
 
-    @Relationship(inverse: \Plant.batches)
     var plant: Plant?
 
-    @Relationship(deleteRule: .cascade, inverse: \ScheduledTask.batch)
+    @Relationship(deleteRule: .cascade)
     var tasks: [ScheduledTask]?
 
-    @Relationship(deleteRule: .cascade, inverse: \CostItem.batch)
+    @Relationship(deleteRule: .cascade)
     var costs: [CostItem]?
 
-    @Relationship(deleteRule: .cascade, inverse: \HarvestLog.batch)
+    @Relationship(deleteRule: .cascade)
     var harvestLogs: [HarvestLog]?
 
     init(
@@ -30,6 +29,14 @@ class Batch {
         self.label = label
         self.startDate = startDate
         self.status = status.rawValue
+    }
+
+    static func == (lhs: Batch, rhs: Batch) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 
     var batchStatus: BatchStatus {

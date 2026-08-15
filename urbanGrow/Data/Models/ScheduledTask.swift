@@ -13,13 +13,10 @@ class ScheduledTask {
     var delayDays: Int
     var isCascading: Bool
 
-    @Relationship(inverse: \Batch.tasks)
     var batch: Batch?
-
-    @Relationship(inverse: \Milestone.scheduledTasks)
     var milestone: Milestone?
 
-    @Relationship(deleteRule: .nullify, inverse: \TaskPhoto.task)
+    @Relationship(deleteRule: .nullify)
     var photos: [TaskPhoto]?
 
     init(
