@@ -20,8 +20,7 @@ struct MainTabView: View {
             .tag(Tab.today)
 
             NavigationStack(path: $batchesPath) {
-                Text("Batches View")
-                    .navigationTitle("Batch")
+                BatchListView()
             }
             .tabItem {
                 Label("Batch", systemImage: "square.grid.2x2")

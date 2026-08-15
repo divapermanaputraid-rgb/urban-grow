@@ -313,18 +313,18 @@
 - [x] **Verify:** Cek di simulator, buat batch baru, lihat apakah task muncul di database.
 
 ### Step 4g — Buat BatchListView
-- [ ] Buat file baru: `Views/Batches/BatchListView.swift`.
-- [ ] Fetch `@Query` semua `Batch`, sort by `startDate` descending.
-- [ ] Section: "Sedang Tumbuh" (`.growing`), "Sudah Panen" (`.harvested`).
-- [ ] Filter segmented picker: [Semua, Seledri, Prei, Jahe].
-- [ ] Toolbar button "+" untuk present `CreateBatchView`.
-- [ ] Build & run.
+- [x] Buat file baru: `Views/Batches/BatchListView.swift`.
+- [x] Fetch `@Query` semua `Batch`, sort by `startDate` descending.
+- [x] Section: "Sedang Tumbuh" (`.growing`), "Sudah Panen" (`.harvested`).
+- [x] Filter segmented picker: [Semua, Seledri, Prei, Jahe].
+- [x] Toolbar button "+" untuk present `CreateBatchView`.
+- [x] Build & run.
 
 ### Step 4h — Buat BatchCard Component
-- [ ] Buat file baru: `Views/Batches/BatchCard.swift`.
-- [ ] Implementasi dari ScreenMap.md.
-- [ ] Show: icon plant, label, status badge, progress bar, age, next task.
-- [ ] Build & run (cek tampilan di BatchListView).
+- [x] Buat file baru: `Views/Batches/BatchCard.swift`.
+- [x] Implementasi dari ScreenMap.md.
+- [x] Show: icon plant, label, status badge, progress bar, age, next task.
+- [x] Build & run (cek tampilan di BatchListView).
 
 ---
 
