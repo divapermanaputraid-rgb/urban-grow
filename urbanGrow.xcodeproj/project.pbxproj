@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FAB823843030E23D0021C187 /* gitswitch.sh in Resources */ = {isa = PBXBuildFile; fileRef = FAB823833030E22F0021C187 /* gitswitch.sh */; };
+		FAB823863030E2680021C187 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FAB823853030E25D0021C187 /* .gitignore */; };
+		FAB823883030E2B00021C187 /* CLAUDE.md in Sources */ = {isa = PBXBuildFile; fileRef = FAB823873030E2A90021C187 /* CLAUDE.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		FAB823543030E1470021C187 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +33,9 @@
 		FAB823443030E1440021C187 /* urbanGrow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = urbanGrow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB823533030E1470021C187 /* urbanGrowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = urbanGrowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB8235D3030E1470021C187 /* urbanGrowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = urbanGrowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAB823833030E22F0021C187 /* gitswitch.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = gitswitch.sh; sourceTree = "<group>"; };
+		FAB823853030E25D0021C187 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		FAB823873030E2A90021C187 /* CLAUDE.md */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLAUDE.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -43,6 +52,11 @@
 		FAB823603030E1470021C187 /* urbanGrowUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = urbanGrowUITests;
+			sourceTree = "<group>";
+		};
+		FAB823713030E1710021C187 /* ai */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ai;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +89,10 @@
 		FAB8233B3030E1440021C187 = {
 			isa = PBXGroup;
 			children = (
+				FAB823833030E22F0021C187 /* gitswitch.sh */,
+				FAB823853030E25D0021C187 /* .gitignore */,
+				FAB823873030E2A90021C187 /* CLAUDE.md */,
+				FAB823713030E1710021C187 /* ai */,
 				FAB823463030E1440021C187 /* urbanGrow */,
 				FAB823563030E1470021C187 /* urbanGrowTests */,
 				FAB823603030E1470021C187 /* urbanGrowUITests */,
@@ -109,6 +127,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				FAB823463030E1440021C187 /* urbanGrow */,
+				FAB823713030E1710021C187 /* ai */,
 			);
 			name = urbanGrow;
 			packageProductDependencies = (
@@ -212,6 +231,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB823863030E2680021C187 /* .gitignore in Resources */,
+				FAB823843030E23D0021C187 /* gitswitch.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB823883030E2B00021C187 /* CLAUDE.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
