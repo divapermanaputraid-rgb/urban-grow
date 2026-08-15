@@ -7,6 +7,7 @@ struct TodayView: View {
     @Environment(AppState.self) private var appState
 
     @State private var selectedTaskToComplete: ScheduledTask?
+    @State private var isShowingSettings: Bool = false
 
     private var startOfToday: Date {
         Calendar.current.startOfDay(for: Date())
@@ -85,11 +86,23 @@ struct TodayView: View {
             }
         }
         .navigationTitle("Hari Ini")
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    isShowingSettings = true
+                } label: {
+                    Image(systemName: "gearshape")
+                }
+            }
+        }
         .navigationDestination(for: Batch.self) { batch in
             BatchDetailView(batch: batch)
         }
         .sheet(item: $selectedTaskToComplete) { task in
             CompleteTaskSheet(task: task)
+        }
+        .sheet(isPresented: $isShowingSettings) {
+            SettingsView()
         }
     }
 
