@@ -265,52 +265,52 @@
 ## PHASE 4: BATCH CREATION FLOW
 
 ### Step 4a — Buat PlantSelectionView
-- [ ] Buat file baru: `Views/Batches/CreateBatch/PlantSelectionView.swift`.
-- [ ] Fetch `@Query` semua `Plant` dari database.
-- [ ] Tampilkan 3 card besar (icon + nama + warna).
-- [ ] Tap card = pilih plant, highlight, lanjut ke step berikutnya.
-- [ ] Build & run (cek apakah 3 tanaman muncul dari seed data).
+- [x] Buat file baru: `Views/Batches/CreateBatch/PlantSelectionView.swift`.
+- [x] Fetch `@Query` semua `Plant` dari database.
+- [x] Tampilkan 3 card besar (icon + nama + warna).
+- [x] Tap card = pilih plant, highlight, lanjut ke step berikutnya.
+- [x] Build & run (cek apakah 3 tanaman muncul dari seed data).
 
 ### Step 4b — Buat BatchInfoView (Step 2)
-- [ ] Buat file baru: `Views/Batches/CreateBatch/BatchInfoView.swift`.
-- [ ] Form dengan: TextField (label), DatePicker (tanggal tanam, default today), TimePicker (jam reminder).
-- [ ] Build & run.
+- [x] Buat file baru: `Views/Batches/CreateBatch/BatchInfoView.swift`.
+- [x] Form dengan: TextField (label), DatePicker (tanggal tanam, default today), TimePicker (jam reminder).
+- [x] Build & run.
 
 ### Step 4c — Buat ModalInputView (Step 3)
-- [ ] Buat file baru: `Views/Batches/CreateBatch/ModalInputView.swift`.
-- [ ] Form dinamis: list item modal yang bisa ditambah.
-- [ ] Per item: TextField nama, TextField jumlah (Rp), Picker kategori, Toggle infrastruktur.
-- [ ] Kalau toggle on: Stepper umur pakai (siklus).
-- [ ] Running total di bawah.
-- [ ] Button "Tambah Item" dan "Lewati".
-- [ ] Build & run.
+- [x] Buat file baru: `Views/Batches/CreateBatch/ModalInputView.swift`.
+- [x] Form dinamis: list item modal yang bisa ditambah.
+- [x] Per item: TextField nama, TextField jumlah (Rp), Picker kategori, Toggle infrastruktur.
+- [x] Kalau toggle on: Stepper umur pakai (siklus).
+- [x] Running total di bawah.
+- [x] Button "Tambah Item" dan "Lewati".
+- [x] Build & run.
 
 ### Step 4d — Buat RoadmapPreviewView (Step 4)
-- [ ] Buat file baru: `Views/Batches/CreateBatch/RoadmapPreviewView.swift`.
-- [ ] Fetch milestones dari plant yang dipilih.
-- [ ] Generate preview timeline (plannedDate dari startDate + dayOffset).
-- [ ] Tampilkan list: Day X — Judul — Tanggal estimasi.
-- [ ] Build & run.
+- [x] Buat file baru: `Views/Batches/CreateBatch/RoadmapPreviewView.swift`.
+- [x] Fetch milestones dari plant yang dipilih.
+- [x] Generate preview timeline (plannedDate dari startDate + dayOffset).
+- [x] Tampilkan list: Day X — Judul — Tanggal estimasi.
+- [x] Build & run.
 
 ### Step 4e — Buat CreateBatchView (Wizard Container)
-- [ ] Buat file baru: `Views/Batches/CreateBatch/CreateBatchView.swift`.
-- [ ] Gunakan `@State` untuk track step (1–4).
-- [ ] Horizontal step indicator di atas.
-- [ ] Embed step views di dalam (PlantSelection → BatchInfo → ModalInput → RoadmapPreview).
-- [ ] Button "Lanjut" / "Kembali" / "Buat Batch".
-- [ ] Build & run (cek flow wizard dari awal sampai akhir).
+- [x] Buat file baru: `Views/Batches/CreateBatch/CreateBatchView.swift`.
+- [x] Gunakan `@State` untuk track step (1–4).
+- [x] Horizontal step indicator di atas.
+- [x] Embed step views di dalam (PlantSelection → BatchInfo → ModalInput → RoadmapPreview).
+- [x] Button "Lanjut" / "Kembali" / "Buat Batch".
+- [x] Build & run (cek flow wizard dari awal sampai akhir).
 
 ### Step 4f — Implementasi Save Batch
-- [ ] Di `CreateBatchView`, saat tap "Buat Batch":
-  - [ ] Buat `Batch` object.
-  - [ ] Simpan ke SwiftData context.
-  - [ ] Generate `ScheduledTask` dari milestones (gunakan `Batch.generateTasks()` dari Models.md).
-  - [ ] Simpan cost items (kalau ada).
-  - [ ] Schedule notifications untuk semua task.
-- [ ] Dismiss sheet.
-- [ ] Redirect ke `BatchDetailView` (atau refresh list).
-- [ ] Build & run.
-- [ ] **Verify:** Cek di simulator, buat batch baru, lihat apakah task muncul di database.
+- [x] Di `CreateBatchView`, saat tap "Buat Batch":
+  - [x] Buat `Batch` object.
+  - [x] Simpan ke SwiftData context.
+  - [x] Generate `ScheduledTask` dari milestones (gunakan `Batch.generateTasks()` dari Models.md).
+  - [x] Simpan cost items (kalau ada).
+  - [x] Schedule notifications untuk semua task.
+- [x] Dismiss sheet.
+- [x] Redirect ke `BatchDetailView` (atau refresh list).
+- [x] Build & run.
+- [x] **Verify:** Cek di simulator, buat batch baru, lihat apakah task muncul di database.
 
 ### Step 4g — Buat BatchListView
 - [ ] Buat file baru: `Views/Batches/BatchListView.swift`.
