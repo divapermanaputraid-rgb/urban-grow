@@ -11,6 +11,7 @@ import SwiftData
 @main
 struct urbanGrowApp: App {
     let container: ModelContainer
+    @State private var appState = AppState()
 
     init() {
         let schema = Schema([
@@ -33,7 +34,8 @@ struct urbanGrowApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
+                .environment(appState)
         }
         .modelContainer(container)
     }
