@@ -35,8 +35,7 @@ struct MainTabView: View {
             .tag(Tab.gallery)
 
             NavigationStack(path: $costsPath) {
-                Text("Costs View")
-                    .navigationTitle("Modal")
+                CostTrackerView()
             }
             .tabItem {
                 Label("Modal", systemImage: "dollarsign.circle")

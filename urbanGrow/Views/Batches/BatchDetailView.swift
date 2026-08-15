@@ -104,7 +104,29 @@ struct BatchDetailView: View {
                     case .photos:
                         EmptyStateView(icon: "photo.on.rectangle", title: "Galeri Foto", message: "Foto dokumentasi task akan tampil di sini")
                     case .costs:
-                        EmptyStateView(icon: "dollarsign.circle", title: "Catatan Modal", message: "Item biaya dan infrastruktur untuk batch ini")
+                        if let costs = batch.costs, !costs.isEmpty {
+                            VStack(alignment: .leading, spacing: 8) {
+                                ForEach(costs) { item in
+                                    HStack {
+                                        VStack(alignment: .leading, spacing: 2) {
+                                            Text(item.name)
+                                                .font(.subheadline.bold())
+                                            Text("\(item.costCategory.rawValue) • \(item.date.formatted(date: .abbreviated, time: .omitted))")
+                                                .font(.caption2)
+                                                .foregroundStyle(.secondary)
+                                        }
+                                        Spacer()
+                                        Text(CurrencyFormatter.format(item.effectiveCost))
+                                            .font(.subheadline.bold())
+                                    }
+                                    .padding()
+                                    .background(Color(.systemBackground))
+                                    .cornerRadius(10)
+                                }
+                            }
+                        } else {
+                            EmptyStateView(icon: "dollarsign.circle", title: "Catatan Modal", message: "Belum ada item biaya untuk batch ini")
+                        }
                     case .harvest:
                         EmptyStateView(icon: "basket", title: "Catatan Panen", message: "Hasil dan nilai panen batch ini")
                     }
