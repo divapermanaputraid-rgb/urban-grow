@@ -6,6 +6,7 @@ struct BatchDetailView: View {
     @Bindable var batch: Batch
     @State private var selectedTab: DetailSegment = .roadmap
     @State private var selectedTaskToComplete: ScheduledTask?
+    @State private var isShowingHarvestForm: Bool = false
 
     enum DetailSegment: String, CaseIterable, Identifiable {
         case roadmap = "Roadmap"
@@ -128,7 +129,28 @@ struct BatchDetailView: View {
                             EmptyStateView(icon: "dollarsign.circle", title: "Catatan Modal", message: "Belum ada item biaya untuk batch ini")
                         }
                     case .harvest:
-                        EmptyStateView(icon: "basket", title: "Catatan Panen", message: "Hasil dan nilai panen batch ini")
+                        VStack(spacing: 12) {
+                            Button {
+                                isShowingHarvestForm = true
+                            } label: {
+                                Label("Catat Hasil Panen", systemImage: "plus.circle.fill")
+                                    .font(.headline)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 8)
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .tint(.green)
+
+                            if let logs = batch.harvestLogs, !logs.isEmpty {
+                                LazyVStack(spacing: 8) {
+                                    ForEach(logs.sorted(by: { $0.date > $1.date })) { log in
+                                        HarvestLogRow(log: log)
+                                    }
+                                }
+                            } else {
+                                EmptyStateView(icon: "basket", title: "Belum Ada Catatan Panen", message: "Catat hasil panen pertamamu dari batch ini")
+                            }
+                        }
                     }
                 }
                 .padding(.horizontal)
@@ -139,6 +161,9 @@ struct BatchDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .sheet(item: $selectedTaskToComplete) { task in
             CompleteTaskSheet(task: task)
+        }
+        .sheet(isPresented: $isShowingHarvestForm) {
+            HarvestFormView(batch: batch)
         }
     }
 
