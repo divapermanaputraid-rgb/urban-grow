@@ -32,15 +32,20 @@ final class CascadeRescheduleService {
         let descriptor = FetchDescriptor(predicate: predicate, sortBy: [SortDescriptor(\.plannedDate)])
         let subsequentTasks = try context.fetch(descriptor)
 
+        var affectedTasks: [ScheduledTask] = [task]
+
         for subsequentTask in subsequentTasks {
             if subsequentTask.milestone?.isSlideable ?? true {
                 if let newPlannedDate = calendar.date(byAdding: .day, value: delayDays, to: subsequentTask.plannedDate) {
                     subsequentTask.plannedDate = newPlannedDate
                     subsequentTask.plannedDayOffset += delayDays
+                    affectedTasks.append(subsequentTask)
                 }
             }
         }
 
         try context.save()
+
+        NotificationService.shared.rescheduleNotifications(for: affectedTasks)
     }
 }
