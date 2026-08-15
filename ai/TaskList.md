@@ -338,20 +338,20 @@
 - [x] Build & run.
 
 ### Step 5b — Implementasi Tab Roadmap di BatchDetail
-- [ ] Embed `TaskListView` di tab Roadmap.
-- [ ] Fetch tasks dari `batch.tasks`, sort by `plannedDayOffset`.
-- [ ] Build & run.
+- [x] Embed `TaskListView` di tab Roadmap.
+- [x] Fetch tasks dari `batch.tasks`, sort by `plannedDayOffset`.
+- [x] Build & run.
 
 ### Step 5c — Buat TaskRow Component
-- [ ] Buat file baru: `Views/Tasks/TaskRow.swift`.
-- [ ] Implementasi dari ScreenMap.md (timeline connector + content card).
-- [ ] Show: day offset, title, planned date, note preview, photo thumbnails.
-- [ ] Build & run.
+- [x] Buat file baru: `Views/Tasks/TaskRow.swift`.
+- [x] Implementasi dari ScreenMap.md (timeline connector + content card).
+- [x] Show: day offset, title, planned date, note preview, photo thumbnails.
+- [x] Build & run.
 
 ### Step 5d — Implementasi Swipe Actions di TaskRow
-- [ ] Leading swipe (right): "✅ Selesai" → present `CompleteTaskSheet`.
-- [ ] Trailing swipe (left): "⏸ Tunda 1 Hari" → panggil `CascadeRescheduleService`.
-- [ ] Build & run.
+- [x] Leading swipe (right): "✅ Selesai" → present `CompleteTaskSheet`.
+- [x] Trailing swipe (left): "⏸ Tunda 1 Hari" → panggil `CascadeRescheduleService`.
+- [x] Build & run.
 
 ### Step 5e — Buat CompleteTaskSheet
 - [ ] Buat file baru: `Views/Tasks/CompleteTaskSheet.swift`.

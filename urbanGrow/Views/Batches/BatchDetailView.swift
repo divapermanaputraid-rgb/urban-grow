@@ -2,8 +2,10 @@ import SwiftUI
 import SwiftData
 
 struct BatchDetailView: View {
+    @Environment(\.modelContext) private var modelContext
     @Bindable var batch: Batch
     @State private var selectedTab: DetailSegment = .roadmap
+    @State private var selectedTaskToComplete: ScheduledTask?
 
     enum DetailSegment: String, CaseIterable, Identifiable {
         case roadmap = "Roadmap"
@@ -87,20 +89,15 @@ struct BatchDetailView: View {
                 Group {
                     switch selectedTab {
                     case .roadmap:
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("Roadmap Timeline")
-                                .font(.headline)
-                            if let tasks = batch.tasks, !tasks.isEmpty {
-                                Text("\(tasks.count) Task Terjadwal")
-                                    .font(.subheadline)
-                                    .foregroundStyle(.secondary)
-                            } else {
-                                Text("Belum ada task")
-                                    .font(.subheadline)
-                                    .foregroundStyle(.secondary)
+                        TaskListView(
+                            tasks: batch.tasks ?? [],
+                            onCompleteTask: { task in
+                                selectedTaskToComplete = task
+                            },
+                            onDelayTask: { task in
+                                delayTaskOneDay(task)
                             }
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                        )
                     case .photos:
                         EmptyStateView(icon: "photo.on.rectangle", title: "Galeri Foto", message: "Foto dokumentasi task akan tampil di sini")
                     case .costs:
@@ -115,5 +112,10 @@ struct BatchDetailView: View {
         }
         .navigationTitle(batch.label)
         .navigationBarTitleDisplayMode(.inline)
+    }
+
+    private func delayTaskOneDay(_ task: ScheduledTask) {
+        let newDate = Calendar.current.date(byAdding: .day, value: 1, to: task.plannedDate) ?? task.plannedDate
+        CascadeRescheduleService.shared.rescheduleTask(task, to: newDate, in: modelContext)
     }
 }
