@@ -12,8 +12,8 @@ struct CompleteTaskSheet: View {
     @State private var note: String = ""
     @State private var capturedImages: [UIImage] = []
 
-    @State private var selectedPhotoItem: PhotosPickerItem? = nil
-    @State private var isShowingCamera: Bool = false
+    @State private var errorMessage: String? = nil
+    @State private var isShowingErrorAlert: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -105,6 +105,11 @@ struct CompleteTaskSheet: View {
             }
         }
         .presentationDetents([.medium, .large])
+        .alert("Gagal Menyimpan", isPresented: $isShowingErrorAlert) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(errorMessage ?? "Terjadi kesalahan saat menyimpan data.")
+        }
     }
 
     private func saveCompletedTask() {
@@ -125,7 +130,12 @@ struct CompleteTaskSheet: View {
         }
 
         NotificationService.shared.cancelNotification(for: task.id)
-        try? modelContext.save()
-        dismiss()
+        do {
+            try modelContext.save()
+            dismiss()
+        } catch {
+            errorMessage = error.localizedDescription
+            isShowingErrorAlert = true
+        }
     }
 }
