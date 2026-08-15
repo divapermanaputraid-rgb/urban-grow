@@ -11,8 +11,7 @@ struct MainTabView: View {
         @Bindable var state = appState
         TabView(selection: $state.selectedTab) {
             NavigationStack(path: $todayPath) {
-                Text("Today View")
-                    .navigationTitle("Hari Ini")
+                TodayView()
             }
             .tabItem {
                 Label("Hari Ini", systemImage: "sun.max")
