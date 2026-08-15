@@ -13,7 +13,15 @@ struct urbanGrowApp: App {
     let container: ModelContainer
 
     init() {
-        let schema = Schema([])
+        let schema = Schema([
+            Plant.self,
+            Milestone.self,
+            Batch.self,
+            ScheduledTask.self,
+            CostItem.self,
+            HarvestLog.self,
+            TaskPhoto.self
+        ])
         let config = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
         do {
             container = try ModelContainer(for: schema, configurations: [config])
