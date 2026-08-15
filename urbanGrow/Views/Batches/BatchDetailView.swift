@@ -112,6 +112,9 @@ struct BatchDetailView: View {
         }
         .navigationTitle(batch.label)
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(item: $selectedTaskToComplete) { task in
+            CompleteTaskSheet(task: task)
+        }
     }
 
     private func delayTaskOneDay(_ task: ScheduledTask) {

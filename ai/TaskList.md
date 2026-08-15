@@ -354,31 +354,31 @@
 - [x] Build & run.
 
 ### Step 5e — Buat CompleteTaskSheet
-- [ ] Buat file baru: `Views/Tasks/CompleteTaskSheet.swift`.
-- [ ] Sheet presentation (medium detent).
-- [ ] Content:
+- [x] Buat file baru: `Views/Tasks/CompleteTaskSheet.swift`.
+- [x] Sheet presentation (medium detent).
+- [x] Content:
   - Header: task title + day.
   - DatePicker: tanggal dikerjakan (default now).
   - TextEditor: catatan.
   - Photo section: horizontal scroll thumbnails + button tambah foto.
-- [ ] Build & run.
+- [x] Build & run.
 
 ### Step 5f — Implementasi Photo Capture di CompleteTaskSheet
-- [ ] Button "📷 Kamera" → present `UIImagePickerController` (camera source).
-- [ ] Button "🖼️ Galeri" → present `PHPickerViewController`.
-- [ ] Setelah ambil foto: compress, save via `PhotoStorageService`, tambah ke task.
-- [ ] Build & run (test di real device, simulator tidak punya kamera).
+- [x] Button "📷 Kamera" → present `UIImagePickerController` (camera source).
+- [x] Button "🖼️ Galeri" → present `PHPickerViewController`.
+- [x] Setelah ambil foto: compress, save via `PhotoStorageService`, tambah ke task.
+- [x] Build & run (test di real device, simulator tidak punya kamera).
 
 ### Step 5g — Implementasi Save Complete Task
-- [ ] Di `CompleteTaskSheet`, saat tap "Simpan":
-  - [ ] Set `completedDate`.
-  - [ ] Set `note`.
-  - [ ] Set status `.completed`.
-  - [ ] Hitung `delayDays`.
-  - [ ] Save context.
-  - [ ] Cancel notification untuk task ini.
-- [ ] Dismiss sheet.
-- [ ] Build & run.
+- [x] Di `CompleteTaskSheet`, saat tap "Simpan":
+  - [x] Set `completedDate`.
+  - [x] Set `note`.
+  - [x] Set status `.completed`.
+  - [x] Hitung `delayDays`.
+  - [x] Save context.
+  - [x] Cancel notification untuk task ini.
+- [x] Dismiss sheet.
+- [x] Build & run.
 
 ### Step 5h — Buat DelayTaskSheet
 - [ ] Buat file baru: `Views/Tasks/DelayTaskSheet.swift`.
