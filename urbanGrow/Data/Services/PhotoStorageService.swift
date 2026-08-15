@@ -34,12 +34,20 @@ final class PhotoStorageService {
     }
 
     func loadPhoto(fileName: String) -> UIImage? {
-        return nil
+        let fileURL = photosDirectory.appendingPathComponent(fileName)
+        guard fileManager.fileExists(atPath: fileURL.path) else { return nil }
+        return UIImage(contentsOfFile: fileURL.path)
     }
 
-    func deletePhoto(fileName: String) {}
+    func deletePhoto(fileName: String) {
+        let fileURL = photosDirectory.appendingPathComponent(fileName)
+        try? fileManager.removeItem(at: fileURL)
+    }
 
-    func deleteAllPhotos(for batchId: UUID) {}
+    func deleteAllPhotos(for batchId: UUID) {
+        let batchFolder = photosDirectory.appendingPathComponent("batch_\(batchId.uuidString)", isDirectory: true)
+        try? fileManager.removeItem(at: batchFolder)
+    }
 
     private func resizedImage(_ image: UIImage, maxDimension: CGFloat) -> UIImage {
         let size = image.size
