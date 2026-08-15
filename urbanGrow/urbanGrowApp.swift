@@ -25,6 +25,7 @@ struct urbanGrowApp: App {
         let config = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
         do {
             container = try ModelContainer(for: schema, configurations: [config])
+            SeedData.seedIfNeeded(context: container.mainContext)
         } catch {
             fatalError("Could not initialize ModelContainer: \(error)")
         }
