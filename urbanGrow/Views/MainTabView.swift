@@ -27,8 +27,7 @@ struct MainTabView: View {
             .tag(Tab.batches)
 
             NavigationStack(path: $galleryPath) {
-                Text("Gallery View")
-                    .navigationTitle("Galeri")
+                GalleryView()
             }
             .tabItem {
                 Label("Galeri", systemImage: "photo.on.rectangle")
