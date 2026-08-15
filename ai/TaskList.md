@@ -331,11 +331,11 @@
 ## PHASE 5: BATCH DETAIL & TASK MANAGEMENT
 
 ### Step 5a — Buat BatchDetailView (Skeleton)
-- [ ] Buat file baru: `Views/Batches/BatchDetailView.swift`.
-- [ ] Accept `@Bindable var batch: Batch`.
-- [ ] Header: plant icon besar, label, day counter, quick stats (total modal, total panen).
-- [ ] Segmented picker di dalam: [Roadmap | Foto | Modal | Panen].
-- [ ] Build & run.
+- [x] Buat file baru: `Views/Batches/BatchDetailView.swift`.
+- [x] Accept `@Bindable var batch: Batch`.
+- [x] Header: plant icon besar, label, day counter, quick stats (total modal, total panen).
+- [x] Segmented picker di dalam: [Roadmap | Foto | Modal | Panen].
+- [x] Build & run.
 
 ### Step 5b — Implementasi Tab Roadmap di BatchDetail
 - [ ] Embed `TaskListView` di tab Roadmap.

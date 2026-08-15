@@ -56,7 +56,10 @@ struct BatchListView: View {
                         if !growingBatches.isEmpty {
                             Section(header: headerView("Sedang Tumbuh (\(growingBatches.count))")) {
                                 ForEach(growingBatches) { batch in
-                                    BatchCard(batch: batch)
+                                    NavigationLink(value: batch) {
+                                        BatchCard(batch: batch)
+                                    }
+                                    .buttonStyle(.plain)
                                 }
                             }
                         }
@@ -64,7 +67,10 @@ struct BatchListView: View {
                         if !harvestedBatches.isEmpty {
                             Section(header: headerView("Sudah Panen (\(harvestedBatches.count))")) {
                                 ForEach(harvestedBatches) { batch in
-                                    BatchCard(batch: batch)
+                                    NavigationLink(value: batch) {
+                                        BatchCard(batch: batch)
+                                    }
+                                    .buttonStyle(.plain)
                                 }
                             }
                         }
@@ -72,7 +78,10 @@ struct BatchListView: View {
                         if !archivedBatches.isEmpty {
                             Section(header: headerView("Arsip (\(archivedBatches.count))")) {
                                 ForEach(archivedBatches) { batch in
-                                    BatchCard(batch: batch)
+                                    NavigationLink(value: batch) {
+                                        BatchCard(batch: batch)
+                                    }
+                                    .buttonStyle(.plain)
                                 }
                             }
                         }
@@ -83,6 +92,9 @@ struct BatchListView: View {
             }
         }
         .navigationTitle("Batch")
+        .navigationDestination(for: Batch.self) { batch in
+            BatchDetailView(batch: batch)
+        }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button {
