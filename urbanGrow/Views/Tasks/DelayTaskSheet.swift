@@ -59,7 +59,7 @@ struct DelayTaskSheet: View {
 
     private func confirmDelay() {
         let newDate = Calendar.current.date(byAdding: .day, value: delayDays, to: task.plannedDate) ?? task.plannedDate
-        CascadeRescheduleService.shared.rescheduleTask(task, to: newDate, in: modelContext)
+        try? CascadeRescheduleService.shared.rescheduleTask(task, to: newDate, in: modelContext)
         dismiss()
     }
 }

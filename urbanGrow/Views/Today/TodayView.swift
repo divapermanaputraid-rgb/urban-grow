@@ -140,7 +140,7 @@ struct TodayView: View {
 
     private func delayTaskOneDay(_ task: ScheduledTask) {
         let newDate = Calendar.current.date(byAdding: .day, value: 1, to: task.plannedDate) ?? task.plannedDate
-        CascadeRescheduleService.shared.rescheduleTask(task, to: newDate, in: modelContext)
+        try? CascadeRescheduleService.shared.rescheduleTask(task, to: newDate, in: modelContext)
     }
 
     private func skipTask(_ task: ScheduledTask, reason: String) {
